@@ -4,24 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="873e57f2-c0d5-495b-b219-575b0649e4ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/TRGI_SimCore.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/default_params.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/default_params.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/dynamics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/geometry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/manifold.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/tensor_I.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simulations/__init__.py" afterDir="false" />
+    <list default="true" id="873e57f2-c0d5-495b-b219-575b0649e4ff" name="Changes" comment="Init Repo">
+      <change afterPath="$PROJECT_DIR$/core/analysis.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/infon_qubit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/t_tensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/default_params.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/default_params.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/dynamics.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/dynamics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/geometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/geometry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/manifold.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/manifold.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/tensor_I.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +67,19 @@
       <option name="presentableId" value="Default" />
       <updated>1749664143977</updated>
     </task>
+    <task id="LOCAL-00001" summary="Init Repo">
+      <option name="closed" value="true" />
+      <created>1749668261889</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749668261889</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init Repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init Repo" />
   </component>
 </project>
