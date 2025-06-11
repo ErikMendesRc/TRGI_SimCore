@@ -1,0 +1,11 @@
+{
+    "manifold_dims": [100, 100],
+    "infon_type": "scalar",
+    "boundary_conditions": "periodic",
+    "initialization_method": "random",
+    "initialization_density": 0.2,
+    "num_steps_sim": 200,
+    "animation_interval_ms": 100,
+    "gol_rule_b": [3],
+    "gol_rule_s": [2, 3]
+}
