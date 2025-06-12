@@ -1,89 +1,87 @@
+# 🌌 TRGI Simulator — Geometric-Informational Reality Theory
 
-# 🌌 TRGI Simulator — Teoria da Realidade Geométrico-Informacional
+A computational simulator based on the **Geometric-Informational Reality Theory (TRGI)** — a speculative framework where **quantum information** is the fundamental substrate of the universe, and **spacetime, energy, and matter** are emergent phenomena.
 
-Simulação computacional da Teoria da Realidade Geométrico-Informacional (TRGI), uma proposta teórica em que **informação quântica** é o substrato fundamental do universo, e **espaço-tempo, energia e matéria** são fenômenos emergentes.
-
-Esta aplicação foi desenvolvida em **Python** com foco em visualização interativa, simulação de dinâmicas quânticas e análise métrica da geometria e energia informacional emergente.
-
----
-
-## 📜 Sumário
-
-- [🔭 Visão Geral da TRGI](#-visão-geral-da-trgi)
-- [🧠 Estrutura da Simulação](#-estrutura-da-simulação)
-- [📊 Métricas Computadas](#-métricas-computadas)
-- [🛠️ Requisitos e Instalação](#️-requisitos-e-instalação)
-- [🚀 Como Executar](#-como-executar)
-- [📁 Estrutura do Projeto](#-estrutura-do-projeto)
-- [📌 Exemplos de Resultados](#-exemplos-de-resultados)
-- [📚 Referências e Inspirações](#-referências-e-inspirações)
-- [🤝 Contribuições](#-contribuições)
+This Python-based project combines **interactive visualization**, **quantum dynamics simulation**, and **metric analysis** of emergent curvature and energy density.
 
 ---
 
-## 🔭 Visão Geral da TRGI
+## 📜 Table of Contents
 
-A TRGI (Teoria da Realidade Geométrico-Informacional) propõe que:
-
-1. **O substrato fundamental do universo é informação quântica** (`Ψ_I`), representada por qubits.
-2. **A geometria do espaço-tempo emerge** da organização dessa informação (métrica emergente baseada na distância de estados quânticos).
-3. **Energia e partículas são padrões estáveis de informação**, e o tensor energia-momento é reinterpretado como fluxo e densidade de informação.
-4. **Um ciclo de feedback causal** regula o sistema:
-   - A geometria influencia a dinâmica dos infons.
-   - A dinâmica dos infons modifica a geometria.
+- [🔭 Theory Overview](#-theory-overview)
+- [🧠 Simulation Design](#-simulation-design)
+- [📊 Metrics Tracked](#-metrics-tracked)
+- [🛠️ Requirements & Installation](#️-requirements--installation)
+- [🚀 How to Run](#-how-to-run)
+- [📁 Project Structure](#-project-structure)
+- [🎞️ Example Results](#-example-results)
+- [📚 References & Inspirations](#-references--inspirations)
+- [🤝 Contributions](#-contributions)
 
 ---
 
-## 🧠 Estrutura da Simulação
+## 🔭 Theory Overview
 
-- A simulação ocorre em uma **grade 2D periódica** de qubits (`40x40` por padrão).
-- Cada qubit evolui no tempo segundo um **Hamiltoniano local** (modelo de Ising Transverso com acoplamento variável):
+The TRGI hypothesis suggests:
+
+1. **Quantum information (`Ψ_I`) is fundamental**, modeled here as a grid of qubits (infons).
+2. **Spacetime geometry emerges** from the organization of that information, computed via local angular distances between qubit states (Bloch vectors).
+3. **Energy and particles** are interpreted as stable or localized patterns in the information field. The energy-momentum tensor `T_{μν}` becomes a tensor of informational density.
+4. **A causal feedback cycle** governs dynamics:
+   - Geometry influences qubit dynamics (via coupling `J_eff`).
+   - Qubit dynamics, in turn, reshape the geometry.
+
+---
+
+## 🧠 Simulation Design
+
+- 2D periodic grid of qubits (`40x40` default).
+- Each qubit evolves using a local Hamiltonian (Transverse Ising model):
+
   ```math
-  H_{ij} = -J_{	ext{eff}} · Z_i ⊗ Z_j - h · (X_i ⊗ I + I ⊗ X_j)
+  H_{ij} = -J_{eff} · Z_i ⊗ Z_j - h · (X_i ⊗ I + I ⊗ X_j)
   ```
-- A **curvatura emergente** é calculada com base na variação de “distâncias informacionais” (ângulo de Bloch entre vizinhos).
-- A energia local (**T₀₀**) é o valor esperado do Hamiltoniano local.
-- O **acoplamento `J_eff`** depende da geometria: qubits mais alinhados interagem mais fortemente.
+
+- **Emergent curvature** is calculated as the standard deviation of informational distances to 8 neighbors.
+- **Informational energy density** `T₀₀` is the local Hamiltonian expectation value.
+- The coupling `J_eff` varies with local alignment (curvature): stronger in flatter regions.
 
 ---
 
-## 📊 Métricas Computadas
+## 📊 Metrics Tracked
 
-Durante a simulação, são coletadas e visualizadas:
-
-- **Entropia de Shannon** (organização global da informação)
-- **Curvatura Média** (estrutura geométrica emergente)
-- **Energia Média** (T₀₀)
-- **Correlação local** entre curvatura e energia (scatter plot + regressão linear)
+- **Shannon entropy** (global informational order)
+- **Average curvature** (emergent geometry)
+- **Average energy** (`T₀₀`)
+- **Local correlation** between curvature and energy (scatter plot + linear regression)
 
 ---
 
-## 🛠️ Requisitos e Instalação
+## 🛠️ Requirements & Installation
 
 ```bash
-git clone https://github.com/seunome/TRGI-simulator.git
+git clone https://github.com/yourname/TRGI-simulator.git
 cd TRGI-simulator
 pip install -r requirements.txt
 ```
 
-**Requisitos principais:**
-
+Main dependencies:
 - Python 3.10+
-- numpy
-- matplotlib
-- scipy
+- `numpy`
+- `matplotlib`
+- `scipy`
 
 ---
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-Para abrir a interface gráfica interativa com visualização em tempo real:
+To open the interactive GUI with live visualization:
 
 ```bash
 python gui/interactive_sim_mpl.py
 ```
 
-Ou, para rodar análises diretamente:
+Or to run plots from saved results:
 
 ```python
 from core.analysis import plot_history, plot_correlation
@@ -91,65 +89,96 @@ from core.analysis import plot_history, plot_correlation
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 TRGI-simulator/
 │
-├── core/                    # Núcleo da simulação TRGI
-│   ├── manifold.py          # Estrutura da grade e vizinhanças
-│   ├── infon_qubit.py       # Definição dos qubits (infons)
-│   ├── dynamics.py          # Regras de evolução (Ising quântico)
-│   ├── geometry.py          # Cálculo da métrica e curvatura emergente
-│   ├── t_tensor.py          # Tensor de energia informacional (T00)
-│   ├── metrics.py           # Métricas globais (entropia, etc.)
+├── core/
+│   ├── manifold.py
+│   ├── infon_qubit.py
+│   ├── dynamics.py
+│   ├── geometry.py
+│   ├── t_tensor.py
+│   ├── metrics.py
 │
 ├── gui/
-│   └── interactive_sim_mpl.py   # Interface gráfica (matplotlib interativo)
+│   └── interactive_sim_mpl.py
 │
 ├── config/
-│   └── default_params.json      # Parâmetros da simulação
+│   └── default_params.json
 │
-├── results/                 # Saídas gráficas e dados (opcional)
+├── results/
 └── README.md
 ```
 
 ---
 
-## 📌 Exemplos de Resultados
+## 🎞️ Example Results
 
-- **Fase desordenada (h = 0.8):**
-  - Alta entropia e curvatura
-  - Nenhuma correlação entre energia e curvatura
+### 🔄 Live Simulation Preview
 
-- **Fase ordenada (h = 0.2):**
-  - Formação de domínios estruturados
-  - Queda na entropia e energia
-  - Correlação positiva entre curvatura e energia:
+![TRGI Simulation](assets/simulation.gif)
+
+### 📊 Global Metrics
+
+![TRGI Metrics](assets/graphics.png)
+
+### 📈 Simulation Metrics Overview
+
+#### 🧩 Left Panel — Global Metrics Over Time
+
+1. **Shannon Entropy (bits)**  
+   Measures the level of disorder in the quantum information field.  
+   → A steady decrease indicates increasing global order over time.
+
+2. **Average Curvature**  
+   Reflects the emergent geometric structure based on local qubit alignment.  
+   → A declining trend suggests the formation of more regular, low-curvature regions.
+
+3. **Average Energy (T₀₀)**  
+   Represents the informational energy density (expected value of the local Hamiltonian).  
+   → Shows progressive energy dissipation as the system stabilizes.
+
+#### 📊 Right Panel — Local Correlation
+
+**Curvature vs. Energy Density (T₀₀)**
+
+- Each point represents a cell in the grid, plotted by its local curvature and energy.
+- The red regression line reveals a **positive linear trend**:  
+  → `T₀₀ ∝ curvature` — high-curvature regions tend to have higher energy,  
+    validating the **feedback mechanism** predicted by the TRGI model.
+
+---
+
+### 🧪 Phases Observed
+
+- **Ordered Phase (h = 0.2):**
+  - Domains of aligned qubits.
+  - Significant drop in entropy and energy.
+  - Strong positive correlation:
     ```math
-    T_{00} ∝ Curvatura
+    T_{00} ∝ curvature
     ```
 
+
 ---
 
-## 📚 Referências e Inspirações
+## 📚 References & Inspirations
 
-- John Wheeler – “It from Bit”
+- John Wheeler – "It from Bit"
 - Carlo Rovelli – Relational Quantum Mechanics
-- Erik Verlinde – Gravidade emergente
-- Computação Quântica e Modelo de Ising Transverso
-- Autômatos celulares e sistemas auto-organizados
+- Erik Verlinde – Emergent Gravity
+- Quantum computing & Ising models
+- Self-organizing systems and cellular automata
 
 ---
 
-## 🤝 Contribuições
+## 🤝 Contributions
 
-Ideias, críticas e sugestões são muito bem-vindas!  
-Este é um projeto aberto, feito por curiosidade científica.
+This is a one-person exploratory project created by a developer with a passion for physics, supported by AI tools.
 
-Se você é da física, ciência da computação, matemática, IA ou apenas curioso por universos simulados — vem junto!
+If you're a physicist, computer scientist, or simply curious about simulated universes — feel free to reach out!
 
----
-
-**Autor:** Erik Mendes  
-**Licença:** MIT (ou outra de sua escolha)
+**Author:** Erik Mendes  
+**License:** MIT
