@@ -1,30 +1,34 @@
-"""
-core/manifold.py
-----------------
-Grade 2-D que armazena infons:
-- Escalares 0/1 (Game of Life)
-- Qubits (novo modo quântico)
-Mantém compatibilidade total com funções antigas.
-"""
-
 from __future__ import annotations
 
 import numpy as np
-from typing import Tuple, Iterable, Iterator, List
+from typing import Tuple, Iterable, Iterator
 
-from .infon_qubit import Qubit   # NEW
+from .infon_qubit import Qubit
 
 
 class Manifold:
-    """Variedade discreta 2-D contendo infons."""
+    """
+    Representa uma variedade discreta 2D contendo infons.
 
-    # ----------------------------- INIT -------------------------------- #
+    Pode operar em dois modos:
+    - 'scalar': usa valores float (0.0 ou 1.0) em cada célula.
+    - 'qubit': usa instâncias da classe Qubit em cada célula.
+    """
+
     def __init__(
         self,
         dimensions: Tuple[int, int],
         infon_type: str = "scalar",
         boundary_conditions: str = "periodic",
     ):
+        """
+        Inicializa a grade 2D da variedade.
+
+        Args:
+            dimensions (Tuple[int, int]): Tamanho da grade (linhas, colunas).
+            infon_type (str): Tipo de infon ('scalar' ou 'qubit').
+            boundary_conditions (str): Condição de contorno ('periodic' ou 'fixed').
+        """
         if len(dimensions) != 2:
             raise ValueError("Atualmente só suportamos grids 2-D.")
 
@@ -32,7 +36,6 @@ class Manifold:
         self.infon_type = infon_type.lower()
         self.boundary_conditions = boundary_conditions
 
-        # Alocação do grid
         if self.infon_type == "scalar":
             self.grid: np.ndarray = np.zeros(dimensions, dtype=float)
 
@@ -40,24 +43,20 @@ class Manifold:
             self.grid = np.empty(dimensions, dtype=object)
             for r in range(self.rows):
                 for c in range(self.cols):
-                    self.grid[r, c] = Qubit()  # estado aleatório
+                    self.grid[r, c] = Qubit()
 
         else:
             raise NotImplementedError(f"Infon type '{infon_type}' não suportado.")
 
-        print(
-            f"Manifold inicializado — {self.rows}×{self.cols}, "
-            f"infon={self.infon_type}, BC={self.boundary_conditions}"
-        )
-
-    # ---------------------- Inicialização ESCALAR ---------------------- #
     def initialize_infons(self, method: str = "random", **kwargs):
         """
-        Re-inicializa SOMENTE grids escalares (para qubits isso não se aplica).
-        Métodos suportados: random, pattern, clear.
+        Inicializa ou reinicializa o grid escalar com valores padrão, aleatórios ou padrões definidos.
+
+        Args:
+            method (str): Método de inicialização ('random', 'pattern', 'clear').
+            **kwargs: Parâmetros específicos para o método selecionado.
         """
         if self.infon_type != "scalar":
-            print("Aviso: initialize_infons ignorado (modo qubit).")
             return
 
         if method == "random":
@@ -80,27 +79,57 @@ class Manifold:
         else:
             raise ValueError(f"Método de init desconhecido: {method}")
 
-        print(f"Infons escalares inicializados ({method}).")
-
-    # ------------------------- Boundary helper ------------------------- #
     def _wrap(self, r: int, c: int) -> Tuple[int, int]:
+        """
+        Aplica condição de contorno à coordenada fornecida.
+
+        Args:
+            r (int): Linha.
+            c (int): Coluna.
+
+        Returns:
+            Tuple[int, int]: Coordenada ajustada conforme as condições de contorno.
+        """
         if self.boundary_conditions == "periodic":
             return r % self.rows, c % self.cols
         if 0 <= r < self.rows and 0 <= c < self.cols:
             return r, c
         raise IndexError("Posição fora dos limites para BC 'fixed'.")
 
-    # --------------------------- Acesso -------------------------------- #
     def get_infon_state(self, pos: Tuple[int, int]):
+        """
+        Retorna o estado do infon na posição indicada.
+
+        Args:
+            pos (Tuple[int, int]): Posição (linha, coluna).
+
+        Returns:
+            Valor escalar ou qubit, dependendo do tipo de infon.
+        """
         r, c = self._wrap(*pos)
         return self.grid[r, c]
 
     def set_infon_state(self, pos: Tuple[int, int], value):
+        """
+        Define o valor do infon na posição indicada.
+
+        Args:
+            pos (Tuple[int, int]): Posição (linha, coluna).
+            value: Valor escalar (float) ou Qubit.
+        """
         r, c = self._wrap(*pos)
         self.grid[r, c] = value
 
-    # ------------------------- Vizinhanças ----------------------------- #
     def neighbor_indices(self, pos: Tuple[int, int]) -> Iterator[Tuple[int, int]]:
+        """
+        Gera as posições dos 8 vizinhos ao redor de uma célula.
+
+        Args:
+            pos (Tuple[int, int]): Posição central.
+
+        Yields:
+            Tuple[int, int]: Posições vizinhas (com wrapping se necessário).
+        """
         r0, c0 = pos
         for dr in (-1, 0, 1):
             for dc in (-1, 0, 1):
@@ -109,7 +138,18 @@ class Manifold:
                 yield self._wrap(r0 + dr, c0 + dc)
 
     def neighbors_sum(self, pos: Tuple[int, int]) -> float:
-        """Somente para grids escalares."""
+        """
+        Soma os valores dos 8 vizinhos de uma célula escalar.
+
+        Args:
+            pos (Tuple[int, int]): Posição da célula.
+
+        Returns:
+            float: Soma dos valores dos vizinhos.
+
+        Raises:
+            TypeError: Se o tipo de infon não for escalar.
+        """
         if self.infon_type != "scalar":
             raise TypeError("neighbors_sum só faz sentido para escalares.")
         return sum(self.grid[r, c] for r, c in self.neighbor_indices(pos))
