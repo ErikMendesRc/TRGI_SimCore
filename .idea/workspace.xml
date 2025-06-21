@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="873e57f2-c0d5-495b-b219-575b0649e4ff" name="Changes" comment="Init Repo">
-      <change afterPath="$PROJECT_DIR$/assets/graphics.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/simulation.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/analysis_3d.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/dynamics.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/dynamics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/geometry.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/geometry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/infon_qubit.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/infon_qubit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/manifold.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/manifold.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/metrics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/t_tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/t_tensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
