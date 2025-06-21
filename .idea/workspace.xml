@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="873e57f2-c0d5-495b-b219-575b0649e4ff" name="Changes" comment="Init Repo">
-      <change afterPath="$PROJECT_DIR$/core/analysis_3d.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/quantum_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/research_tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/parameter_sweep.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/interactive_sim_mpl.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
